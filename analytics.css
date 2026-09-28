@@ -1,0 +1,288 @@
+/* ════════════════════════════════════════════════════════════════
+   FLOW ANALYTICS  (Phase 1 - data foundation + Monte Carlo)
+   Reuses design tokens from index.html (:root variables).
+   All classes prefixed fa- to avoid collisions.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Sub-navigation (Flow Metrics / Sprint Insights) ───────────── */
+.fa-subnav{display:flex;gap:6px;margin-bottom:16px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:5px;box-shadow:var(--sh);width:fit-content}
+.fa-subtab{display:flex;align-items:center;gap:6px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--muted);border:none;background:none;border-radius:7px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.fa-subtab:hover{color:var(--text);background:var(--s2bg)}
+.fa-subtab.active{color:var(--green);background:var(--green-bg)}
+
+/* ── Data-source input tabs (CSV / Jira) ───────────────────────── */
+.fa-itabs{display:flex;gap:2px;background:var(--s2bg);border:1.5px solid var(--border);border-radius:8px;padding:3px;width:fit-content}
+.fa-itab{padding:7px 16px;font-size:13px;font-weight:600;color:var(--muted);border:none;background:none;border-radius:6px;cursor:pointer;transition:all .15s}
+.fa-itab.active{background:var(--surface);color:var(--green);box-shadow:var(--sh)}
+
+/* ── CSV drop zone ─────────────────────────────────────────────── */
+.fa-drop{border:2px dashed var(--border-2);border-radius:12px;padding:28px 20px;text-align:center;color:var(--muted);cursor:pointer;transition:all .15s;background:var(--s2bg)}
+.fa-drop:hover,.fa-drop.drag{border-color:var(--green);background:var(--green-bg);color:var(--green)}
+.fa-drop .fa-drop-ico{font-size:30px;margin-bottom:8px}
+.fa-drop .fa-drop-hint{font-size:11px;margin-top:4px;color:var(--hint)}
+
+/* ── Column mapper grid ────────────────────────────────────────── */
+.fa-map{margin-top:14px;padding:16px;background:var(--s2bg);border:1px solid var(--border);border-radius:10px}
+.fa-map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.fa-map-hd{font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:10px}
+.fa-req{color:var(--red);font-weight:700}
+.fa-opt{color:var(--hint);font-weight:400;font-size:10px}
+
+/* ── Jira panel ────────────────────────────────────────────────── */
+.fa-jira-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.fa-jira-adv{margin-top:10px;padding:12px;background:var(--s2bg);border:1px dashed var(--border-2);border-radius:8px}
+.fa-jira-adv summary{font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;user-select:none}
+.fa-jira-adv[open] summary{margin-bottom:10px;color:var(--text-2)}
+.fa-cors{display:none;margin-top:10px;padding:12px;background:var(--red-bg);border:1px solid var(--red-bd);border-radius:8px;font-size:12px;color:var(--text-2)}
+.fa-cors code{background:var(--surface);padding:1px 6px;border-radius:4px;font-family:var(--mono);font-size:11px}
+
+/* ── Settings spine ────────────────────────────────────────────── */
+.fa-settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;padding:16px;background:var(--s2bg);border:1px solid var(--border);border-radius:10px;margin-bottom:16px}
+.fa-set-note{font-size:11px;color:var(--hint);margin-top:3px;line-height:1.4}
+
+/* ── Data summary cards ────────────────────────────────────────── */
+.fa-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:16px 0}
+.fa-scard{background:var(--s2bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.fa-scard-lbl{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.fa-scard-val{font-size:22px;font-weight:700;font-family:var(--mono);color:var(--text)}
+.fa-scard-sub{font-size:11px;color:var(--hint);margin-top:2px}
+
+/* ── Preview table ─────────────────────────────────────────────── */
+.fa-prev-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:8px}
+.fa-prev-scroll{max-height:340px;overflow:auto}
+.fa-prev{width:100%;border-collapse:collapse;font-size:12px}
+.fa-prev th{position:sticky;top:0;background:var(--s2bg);text-align:left;padding:8px 10px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);white-space:nowrap;z-index:1}
+.fa-prev td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text-2);white-space:nowrap}
+.fa-prev tr:last-child td{border-bottom:none}
+.fa-prev tr:hover td{background:var(--s2bg)}
+.fa-prev .num{font-family:var(--mono);text-align:right}
+.fa-prev-foot{padding:8px 12px;font-size:11px;color:var(--hint);background:var(--s2bg);border-top:1px solid var(--border)}
+
+/* ── Type / status pills ───────────────────────────────────────── */
+.fa-pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.fa-pill.story{background:var(--em-bg);color:var(--em)}
+.fa-pill.bug{background:var(--red-bg);color:var(--red)}
+.fa-pill.task{background:var(--sky-bg);color:var(--sky)}
+.fa-pill.other{background:var(--s2bg);color:var(--muted)}
+.fa-pill.done{background:var(--green-bg);color:var(--green)}
+.fa-pill.progress{background:var(--amber-bg);color:var(--amber)}
+.fa-pill.todo{background:var(--s2bg);color:var(--muted)}
+
+/* ── Empty state ───────────────────────────────────────────────── */
+.fa-empty{text-align:center;padding:40px 20px;color:var(--muted)}
+.fa-empty-ico{font-size:40px;margin-bottom:12px;opacity:.7}
+.fa-empty h4{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.fa-empty p{font-size:13px;color:var(--muted);max-width:420px;margin:0 auto 4px}
+
+/* ── Row of warnings / hints ───────────────────────────────────── */
+.fa-warn{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;border-radius:8px;font-size:12px;line-height:1.5;margin-top:12px}
+.fa-warn.amber{background:var(--amber-bg);border:1px solid var(--amber-bd);color:var(--text-2)}
+.fa-warn.green{background:var(--green-bg);border:1px solid var(--green-bd);color:var(--text-2)}
+.fa-warn.sky{background:var(--sky-bg);border:1px solid var(--sky-bd);color:var(--text-2)}
+
+/* ── Section helper ────────────────────────────────────────────── */
+.fa-sec-hint{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+
+/* ════════════════════════════════════════════════════════════════
+   MONTE CARLO (Checkpoint 1B)
+   ════════════════════════════════════════════════════════════════ */
+.fa-mc-modes{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.fa-mc-mode{flex:1;min-width:200px;text-align:left;padding:14px 16px;border:1.5px solid var(--border-2);border-radius:10px;background:var(--surface);cursor:pointer;transition:all .15s}
+.fa-mc-mode:hover{border-color:var(--green-bd);background:var(--green-bg)}
+.fa-mc-mode.active{border-color:var(--green);background:var(--green-bg);box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.fa-mc-mode-t{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px}
+.fa-mc-mode.active .fa-mc-mode-t{color:var(--green)}
+.fa-mc-mode-d{font-size:11px;color:var(--muted);line-height:1.4}
+
+.fa-mc-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;padding:16px;background:var(--s2bg);border:1px solid var(--border);border-radius:10px;margin-bottom:16px}
+.fa-toggle{display:inline-flex;border:1.5px solid var(--border-2);border-radius:8px;overflow:hidden}
+.fa-toggle button{padding:7px 14px;font-size:12px;font-weight:600;border:none;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .12s}
+.fa-toggle button.active{background:var(--green);color:#fff}
+
+.fa-vel-badge{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.fa-vel-badge.green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-bd)}
+.fa-vel-badge.amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-bd)}
+.fa-vel-badge.red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-bd)}
+
+/* Confidence result cards */
+.fa-conf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0}
+.fa-conf{border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;background:var(--surface);transition:all .15s}
+.fa-conf.hl{border-color:var(--green);background:var(--green-bg);box-shadow:var(--sh2)}
+.fa-conf-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:6px}
+.fa-conf-pct{font-size:11px;font-weight:600;color:var(--hint);margin-bottom:4px}
+.fa-conf-val{font-size:26px;font-weight:700;font-family:var(--mono);color:var(--text);line-height:1.1}
+.fa-conf.hl .fa-conf-val{color:var(--green)}
+.fa-conf-unit{font-size:11px;color:var(--muted);margin-top:3px}
+.fa-conf-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:6px;color:var(--green);display:none}
+.fa-conf.hl .fa-conf-tag{display:block}
+
+/* Burnup / histogram chart */
+.fa-chart{margin-top:16px}
+.fa-chart svg{width:100%;height:auto;display:block;overflow:visible}
+.fa-chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)}
+.fa-chart-legend span{display:flex;align-items:center;gap:5px}
+.fa-leg-line{width:16px;height:3px;border-radius:2px;flex-shrink:0}
+.fa-leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+.fa-mc-foot{font-size:11px;color:var(--hint);margin-top:12px;line-height:1.5}
+
+/* ════════════════════════════════════════════════════════════════
+   V3 REDESIGN - 2-column chart row + benchmark context (V3-1)
+   ════════════════════════════════════════════════════════════════ */
+.fa-row{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px;background:var(--surface)}
+.fa-row-titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.fa-row-title{font-size:15px;font-weight:600;color:var(--text)}
+.fa-row-sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.fa-export-btn{font-size:10px;font-weight:600;color:var(--muted);background:var(--surface);border:1px solid var(--border-2);border-radius:6px;padding:2px 7px;cursor:pointer;flex-shrink:0;transition:all .12s}
+.fa-export-btn:hover{color:var(--primary);border-color:var(--primary-bd);background:var(--primary-bg)}
+.fa-row-ctx{border-left:1px solid var(--border);padding-left:16px}
+.fa-ctx-hd{font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:8px}
+.fa-ctx-txt{font-size:12.5px;color:var(--text-2);line-height:1.5;margin-bottom:12px}
+.fa-ctx-lbl{font-size:10px;font-weight:700;color:var(--hint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.fa-ctx-val{font-size:13px;color:var(--text);margin-bottom:12px}
+.fa-status{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:20px;border:1px solid;margin-bottom:4px}
+.fa-insight{background:var(--sky-bg);border:1px solid var(--sky-bd);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--text-2);line-height:1.5;margin-top:4px}
+.fa-understand{margin-top:12px}
+.fa-understand summary{font-size:12px;font-weight:600;color:var(--primary);cursor:pointer;user-select:none;list-style:none}
+.fa-understand summary::-webkit-details-marker{display:none}
+.fa-understand summary::before{content:'▸ ';font-size:10px}
+.fa-understand[open] summary::before{content:'▾ '}
+.fa-understand-bd{margin-top:8px;font-size:12px;color:var(--text-2);line-height:1.55}
+.fa-understand-bd p{margin-bottom:6px}
+.fa-understand-bd .fa-ref{color:var(--hint);font-style:italic}
+.fa-ctrl-chips{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;align-items:center}
+.fa-ctrl-chip{font-size:11px;color:var(--muted);border:1px solid var(--border-2);border-radius:6px;padding:3px 9px;background:var(--surface);cursor:pointer;transition:all .12s}
+.fa-ctrl-chip:hover{border-color:var(--primary-bd)}
+.fa-ctrl-chip.on{background:var(--primary-bg);color:var(--primary);border-color:var(--primary-bd)}
+.fa-ctrl-lbl{font-size:11px;color:var(--hint);margin:0 2px 0 6px;align-self:center}
+.fa-ctrl-chips select{padding:2px 6px;font-size:11px;width:auto;height:auto}
+
+/* Benchmark editor */
+.fa-bench-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.fa-bench-tbl th{text-align:left;padding:6px 8px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+.fa-bench-tbl td{padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-2)}
+.fa-bench-tbl input{padding:4px 6px}
+
+@media(max-width:720px){.fa-row{grid-template-columns:1fr}.fa-row-ctx{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:14px}}
+
+/* ── Sticky KPI strip + floating nav (V3-2) ────────────────────── */
+.fa-sticky{position:sticky;top:112px;z-index:50;background:var(--bg);padding:8px 0 6px;margin-bottom:10px;border-bottom:1px solid var(--border)}
+.fa-kpi-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.fa-kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 10px;box-shadow:var(--sh)}
+.fa-kpi-lbl{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fa-kpi-val{font-size:20px;font-weight:700;font-family:var(--mono);color:var(--text);line-height:1.15}
+.fa-kpi-unit{font-size:11px;color:var(--muted);margin-left:2px;font-family:var(--sans);font-weight:500}
+.fa-kpi-delta{font-size:11px;font-weight:600;margin-top:1px}
+.fa-spark{display:block;margin-top:3px}
+.fa-nav-strip{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.fa-nav-pill{font-size:12px;font-weight:600;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 12px;cursor:pointer;transition:all .12s;color:var(--text-2)}
+.fa-nav-pill:hover{border-color:var(--border-2);background:var(--s2bg)}
+@media(max-width:720px){.fa-kpi-strip{grid-template-columns:repeat(3,1fr)}}
+/* Laptop+ (>=1120px): two-column Flow Metrics — the KPI strip becomes a sticky left rail, charts fill the rest.
+   Below 1120px there is no room, so it stays the horizontal top strip (rules above). */
+@media(min-width:1120px){
+  #sub-flow.has-data{display:grid;grid-template-columns:186px minmax(0,1fr);column-gap:20px;align-items:start}
+  #sub-flow.has-data > *{grid-column:2;min-width:0}
+  #sub-flow.has-data #fa-sticky{grid-column:1;grid-row:1 / span 99;position:sticky;top:130px;align-self:start;z-index:50;max-height:calc(100vh - 150px);overflow-y:auto;overflow-x:hidden;background:transparent;border-bottom:none;margin:0;padding:0}
+  #sub-flow.has-data #fa-sticky .fa-kpi-strip{display:flex;flex-direction:column;gap:8px}
+  #sub-flow.has-data #fa-sticky .fa-nav-strip{display:flex;flex-direction:column;gap:6px;margin-top:10px;flex-wrap:nowrap}
+  #sub-flow.has-data #fa-sticky .fa-nav-pill{margin-left:0 !important;text-align:center}
+}
+
+/* ── Flow Metrics layout: analytics-first once data exists ─────── */
+#sub-flow{display:flex;flex-direction:column}
+/* No data: document order (data source + calc settings on top). */
+/* With data: analytics rise to the top, data-entry drops to the bottom. */
+#sub-flow.has-data #fa-sticky{order:0}
+#sub-flow.has-data #fa-health-card{order:1}
+#sub-flow.has-data #fa-recs-card{order:2}
+#sub-flow.has-data .fa-acc[data-grp="flow"]{order:3}
+#sub-flow.has-data .fa-acc[data-grp="pred"]{order:4}
+#sub-flow.has-data .fa-acc[data-grp="work"]{order:5}
+#sub-flow.has-data .fa-datasource-card{order:6}
+#sub-flow.has-data #fa-datatable-card{order:7}
+#sub-flow.has-data #fa-calc-card{order:8}
+#sub-flow.has-data #fa-scopebar{order:-1}
+#sub-flow.has-data #fa-persprint-card{order:2}
+/* Flow Metrics scope selector + per-sprint table */
+#fa-scopebar:empty{display:none}
+.fa-scopebar-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;margin-bottom:16px;border:1px solid var(--primary-bd);border-radius:10px;background:var(--primary-bg)}
+.fa-scopebar-inner select{width:auto}
+.fa-ps-tbl th,.fa-ps-tbl td{white-space:nowrap}
+.fa-ps-overall td{border-top:2px solid var(--border-2);font-weight:700;background:var(--s2bg);color:var(--text)}
+
+/* ── Sprint comparison (Sprint Insights) ───────────────────────── */
+.fa-cmp-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.fa-cmp-controls label.fl{margin:0}
+.fa-cmp-controls select{width:auto}
+.fa-cmp-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.fa-cmp-tbl th{text-align:left;padding:7px 10px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+.fa-cmp-tbl td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text-2)}
+.fa-cmp-tbl td.num{font-family:var(--mono);text-align:right}
+.fa-cmp-tbl th.num{text-align:right}
+.fa-cmp-tbl tr:last-child td{border-bottom:none}
+.fa-cmp-mix{font-size:12px;color:var(--text-2);line-height:1.9}
+.fa-cmp-fields{margin-bottom:12px;font-size:12.5px}
+.fa-cmp-fields summary{cursor:pointer;color:var(--primary);font-weight:600;user-select:none}
+.fa-cmp-fieldgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:4px 14px;margin-top:8px;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--s2bg)}
+.fa-cmp-fld{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-2);cursor:pointer}
+.fa-cmp-fld input{accent-color:var(--primary);cursor:pointer}
+.fa-cmp-win{font-weight:700}
+.fa-cmp-summary{margin-top:14px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--s2bg)}
+.fa-cmp-tips{margin:6px 0 0;padding-left:18px;font-size:12.5px;color:var(--text-2);line-height:1.6}
+.fa-cmp-tips li{margin-bottom:4px}
+
+/* ── Accordion groups ──────────────────────────────────────────── */
+.fa-acc-bar{cursor:pointer;user-select:none}
+.fa-acc-chev{margin-left:auto;color:var(--muted);font-size:12px}
+
+/* ── 2-up chart grid (graphs side by side) ─────────────────────── */
+.fa-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.fa-grid2 > *{grid-column:1/-1}              /* controls, hints, warnings span full width */
+.fa-grid2 > .fa-row{grid-column:auto;margin-bottom:0}   /* charts sit two-up */
+.fa-grid2 .fa-row{grid-template-columns:1fr}            /* stack chart over context in a cell */
+.fa-grid2 .fa-row-ctx{border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:14px}
+@media(max-width:900px){.fa-grid2{grid-template-columns:1fr}}
+
+/* ── WIP / aging horizontal bars + tables (V3-3) ───────────────── */
+.fa-hbars{display:flex;flex-direction:column;gap:5px;margin-top:4px}
+.fa-hbar-row{display:flex;align-items:center;gap:8px;font-size:12px}
+.fa-hbar-lbl{width:64px;flex-shrink:0;color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--mono);font-size:11px}
+.fa-hbar-track{flex:1;background:var(--s2bg);border-radius:4px;height:16px;overflow:hidden}
+.fa-hbar-fill{height:100%;border-radius:4px}
+.fa-hbar-val{width:30px;flex-shrink:0;text-align:right;font-family:var(--mono);font-size:11px;color:var(--text-2)}
+.fa-zones{display:flex;gap:10px;margin:8px 0;font-size:11px;color:var(--muted);flex-wrap:wrap}
+.fa-zone-dot{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:-1px}
+.fa-atbl{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:10px}
+.fa-atbl th{text-align:left;padding:5px 8px;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--border)}
+.fa-atbl td{padding:5px 8px;border-bottom:1px solid var(--border);color:var(--text-2)}
+.fa-atbl td.num{font-family:var(--mono);text-align:right}
+.fa-zone-pill{display:inline-block;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:600}
+
+/* ── Health score + recommendations (V3-5) ─────────────────────── */
+.fa-health{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.fa-health-badge{display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0;width:88px}
+.fa-health-score{display:flex;align-items:center;justify-content:center;width:78px;height:78px;border-radius:50%;flex-shrink:0;border:3px solid}
+.fa-health-num{font-size:26px;font-weight:700;font-family:var(--mono);line-height:1}
+.fa-health-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;text-align:center;line-height:1.15}
+.fa-subscores{flex:1;min-width:260px;display:flex;flex-direction:column;gap:8px}
+.fa-subscore{display:flex;align-items:center;gap:10px;font-size:12px}
+.fa-subscore-nm{width:140px;flex-shrink:0;color:var(--text-2)}
+.fa-subscore-track{flex:1;height:8px;background:var(--s2bg);border-radius:4px;overflow:hidden}
+.fa-subscore-fill{height:100%;border-radius:4px}
+.fa-subscore-val{width:96px;text-align:right;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.fa-focus{margin-top:14px;font-size:12.5px;color:var(--text-2);background:var(--s2bg);border-radius:8px;padding:8px 12px}
+.fa-rec{border:1px solid var(--border);border-left-width:3px;border-radius:8px;padding:12px 14px;margin-bottom:10px;background:var(--surface)}
+.fa-rec.high{border-left-color:var(--red)}
+.fa-rec.medium{border-left-color:var(--amber)}
+.fa-rec.positive{border-left-color:var(--green)}
+.fa-rec-hd{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.fa-rec-sev{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:2px 8px;border-radius:10px}
+.fa-rec-sev.high{background:var(--red-bg);color:var(--red)}
+.fa-rec-sev.medium{background:var(--amber-bg);color:var(--amber)}
+.fa-rec-sev.positive{background:var(--green-bg);color:var(--green)}
+.fa-rec-title{font-size:13px;font-weight:600;color:var(--text)}
+.fa-rec-insight{font-size:12.5px;color:var(--text-2);line-height:1.5;margin-bottom:6px}
+.fa-rec-target{font-size:12px;color:var(--text);margin-bottom:4px}
+.fa-rec-steps{margin:2px 0 8px 18px;padding:0;font-size:12px;color:var(--text-2);line-height:1.55}
+.fa-rec-guard{font-size:11.5px;color:var(--muted);background:var(--s2bg);border-radius:6px;padding:6px 9px;line-height:1.5}

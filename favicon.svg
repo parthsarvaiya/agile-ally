@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Agile Ally">
+  <rect width="48" height="48" rx="12" fill="#4F46E5"/>
+  <circle cx="24" cy="24" r="13" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.45"/>
+  <path d="M24 33 V16 M16.5 23.5 L24 15.5 L31.5 23.5" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
